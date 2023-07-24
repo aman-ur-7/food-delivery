@@ -85,4 +85,106 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 600;
         color: #000000bb;
     }
+
+
+
+    .hero-section{
+
+        &>.food-slider{
+            background: #dedede5f;
+            /* position: relative; */
+
+            &>div:first-child{
+
+                &>img{
+                width: 370px;
+                height: 370px;
+                border-radius: 50%;
+                border: 10px solid orangered;
+                position: relative;
+                top: 70px;
+                left: 400px;
+            }
+
+            &>:nth-child(2){
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                background-color: orangered;
+                position: relative;
+                top: -90px;
+                left: 840px;
+            }
+            }
+            
+            
+            &>div:nth-child(2){
+
+                align-items: center;
+
+                &>img{
+                    width: 500px;
+                    height: 500px;
+                    border-radius: 50%;
+                    border: 10px solid orangered;
+                    position: relative;
+                    top: -100px;
+                    left: 100px;
+                }
+
+                &>div{
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    border: 20px solid orangered;
+                    position: relative;
+                    top: -470px;
+                    left: 700px;
+                }
+        }
+
+            &>div:nth-child(3){
+                height: 550px;
+                &>img{
+                        width: 700px;
+                        height: 700px;
+                        border-radius: 50%;
+                        border: 10px solid orangered;
+                        position: relative;
+                        top: -400px;
+                        left: 500px;
+                }
+                &>div{
+                        width: 570px;
+                        height: 370px;
+                        border-radius: 17px;
+                        background-color: orangered;
+                        position: relative;
+                        top: -600px;
+                        left: 240px;
+                        color: white;
+                        padding: 20px;
+
+                        &>h1{
+                            font-size: 40px;
+                        }
+                }
+            }
+        }
+        .card-items{
+            padding: 10px;
+            background: #caf3b7;
+        }
+
+        /* .chakra-card{
+            height: 500px;
+        }
+
+
+        .chakra-card__body>img{
+            border: 1px solid red;
+            height: 300px;
+        } */
+    }
+
 `;
