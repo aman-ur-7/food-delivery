@@ -1,5 +1,6 @@
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,8 +12,12 @@ const Header = () => {
         </h4>
       </div>
       <div className="header-content">
-        <span>home</span>
-        <span>my-orders</span>
+        <NavLink to="/*">
+          <span>home</span>
+        </NavLink>
+        <NavLink to="/myorders">
+          <span>my-orders</span>
+        </NavLink>
         <input type="text" placeholder="search your item" />
       </div>
       <div className="header-options"></div>

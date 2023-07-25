@@ -49,36 +49,33 @@ const HeroSection = () => {
       </div>
       <div></div>
       <div className="card-items">
-        <Card maxW="sm">
-          <CardBody>
-            <img
-              src="https://images.pexels.com/photos/161573/background-water-breakfast-bright-161573.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Green double couch with wooden legs"
-              // borderradius="lg"
-            />
-            <Stack mt="6" spacing="3">
-              <Heading size="md">Living room Sofa</Heading>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi laudantium aspernatur natus?
-              </Text>
-              <Text color="blue.600" fontSize="2xl">
-                $450
-              </Text>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="blue">
-                Buy now
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                Add to cart
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
+        <div>
+          <img
+            src="https://cdn.pixabay.com/photo/2017/07/28/14/29/macarons-2548827_1280.jpg"
+            alt=""
+          />
+          <div className="food-card">
+            <div>
+              <h3>salad we have</h3>
+              <p>
+                For you sir . Lorem ipsum, dolor sit amet consectetur
+                adipisicing.
+              </p>
+            </div>
+            <div>
+              <select>
+                <option value="0">Select</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+              </select>
+              <select>
+                <option value="0">Select</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

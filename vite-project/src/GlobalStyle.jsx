@@ -172,19 +172,66 @@ export const GlobalStyle = createGlobalStyle`
             }
         }
         .card-items{
-            padding: 10px;
+            padding: 20px;
             background: #caf3b7;
+
+            &>div{
+                box-shadow: 0px 5px 10px 0px rgba(209, 209, 209, 0.7); 
+                background: #ffffff;
+                border-radius: 17px;
+                width: 270px;
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: 2s;
+
+            :hover{
+                transform: translateY(-5px);
+                box-shadow: 0px 10px 20px 2px rgba(219, 223, 223, 0.7);
+                /* transition: 2s; */
+                }
+
+                &>img{
+                    position: relative;
+                    height: 47%;
+                    width: 90%; 
+                    object-fit:fill;
+                    margin: auto;
+                    border-radius: 12px;
+                }
+
+                .food-card{
+                    position: relative;
+                    padding: 17px;
+                    top: -20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    &>div>h3{
+                        font-size: 25px;
+                        color: orangered;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                    }
+                    &>:nth-child(2){
+                        display: flex;
+                        gap: 100px;
+                        /* justify-content: space-around; */
+
+                        &>select{
+                        cursor: pointer;
+                        
+                        :hover{
+                            background: #caf3b7;
+                        }
+                    }
+                }
+                }
+
+            }
         }
-
-        /* .chakra-card{
-            height: 500px;
-        }
-
-
-        .chakra-card__body>img{
-            border: 1px solid red;
-            height: 300px;
-        } */
     }
 
 `;
