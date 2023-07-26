@@ -1,8 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userModel = new Schema(
   {
+    _id: Object,
     name: {
       type: String,
       required: true,
@@ -26,6 +27,5 @@ const userModel = new Schema(
     timestamps: true,
   }
 );
-
 const user = mongoose.model("user", userModel);
 module.exports = user;
