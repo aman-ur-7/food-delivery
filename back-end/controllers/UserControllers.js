@@ -1,4 +1,5 @@
 const UserModel = require("../model/UserModel");
+const sellerModel = require("../model/SellerModel");
 const asyncHandler = require("express-async-handler");
 
 const registerUser = asyncHandler(async (req, res) => {
@@ -38,17 +39,38 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  const { newPassword } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const updateUser = await UserModel.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    console.log(updateUser);
+    const updateUser = await UserModel.findOneAndUpdate(
+      { email },
+      { $set: { password: password } }
+    );
+    res.status(200).send("user is updated");
   } catch (error) {
     console.log(error);
   }
 });
 
-module.exports = { registerUser, loginUser, updateUser };
+const foodSeller = asyncHandler(async (req, res) => {
+  const { foodName, cost, address, pic } = req.body;
+
+  if (!foodName || !cost || !address || !pic) {
+    res.status(400);
+    throw new Error("please enter all the fields");
+  }
+
+  const createUser = await sellerModel.create({
+    foodName,
+    cost,
+    address,
+    pic,
+  });
+
+  if (createUser) {
+    // console.log(createUser);
+    res.send("seller successfully created");
+  } else throw new Error();
+});
+
+module.exports = { registerUser, loginUser, updateUser, foodSeller };

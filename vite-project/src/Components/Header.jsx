@@ -1,26 +1,23 @@
 import React from "react";
-import { IoLocationSharp } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import { VscThreeBars } from "react-icons/vsc";
 
 const Header = () => {
   return (
-    <header>
-      <div className="logo">
-        <h4>
-          <IoLocationSharp color="orange" size={31} className="io-logo" />
-          wigy
-        </h4>
+    <header className="header">
+      <div className="inside-header">
+        <div>
+          <div>
+            <FaSearch size={20} color="#797575" />
+          </div>
+          <div>
+            <input type="text" placeholder="what would you like to eat?" />
+          </div>
+        </div>
+        <div>
+          <VscThreeBars size={20} color="#797575" />
+        </div>
       </div>
-      <div className="header-content">
-        <NavLink to="/*">
-          <span>home</span>
-        </NavLink>
-        <NavLink to="/myorders">
-          <span>my-orders</span>
-        </NavLink>
-        <input type="text" placeholder="search your item" />
-      </div>
-      <div className="header-options"></div>
     </header>
   );
 };

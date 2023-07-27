@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const userModel = new Schema(
   {
-    _id: Object,
+    // _id: Object,
     name: {
       type: String,
       required: true,
@@ -17,11 +17,11 @@ const userModel = new Schema(
       type: String,
       required: true,
     },
-    pic: {
-      type: String,
-      default:
-        "https://cdn.pixabay.com/photo/2017/07/28/14/29/macarons-2548827_1280.jpg",
-    },
+    // pic: {
+    //   type: String,
+    //   default:
+    //     "https://cdn.pixabay.com/photo/2017/07/28/14/29/macarons-2548827_1280.jpg",
+    // },
   },
   {
     timestamps: true,
