@@ -13,6 +13,12 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         grid-template-columns: 1.5fr 20fr 8fr;
 
+        &>div{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+        }
         &>.left-header{
             background: #F3F3F3;
             display: flex;
@@ -30,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         .header{
-            padding: 15px;
 
             &>.inside-header{
                 background: #F3F3F3;
@@ -55,6 +60,76 @@ export const GlobalStyle = createGlobalStyle`
                         font-size: large;
                         width: 250px;
                     }
+                }
+            }
+        }
+        .hero-section{
+            display: flex;
+            flex-direction: column;
+            gap: 20px ;
+
+
+            .slider{
+
+                .override-image{
+                    position: absolute;
+                    width: 237.5px;
+                    height: inherit;
+                    left: 0px;
+                    top: 0px;
+                    background: #FF5C28;
+                    z-index: 2;
+                    clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+
+                &>div{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    transform: translate(-10% , 20%);
+                    align-items: center;
+                    &>h1{
+                        font-size: 40px ;
+                        color: #000000;
+                        font-weight: bold;
+                    }
+                    &>span{
+                        text-transform: capitalize;
+                        font-size: 30px;
+                        color: #ffffff;
+                        font-weight: bold;
+                    }
+                }
+             }
+                .override-image2{
+                position: absolute;
+                width: 237.5px;
+                height: inherit;
+                left: 40px;
+                top: 70px;
+                background: #DA3805;
+                z-index: 1;
+                clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+                transform: rotate(69deg);
+                }
+
+                .swiper-scrollbar{
+                    display: none;
+                }
+                .swiper-slide>img {
+                    /* width: 100%; */
+                    float: right;
+                    object-fit: fill;
+                    position: relative;
+                    top: -30px;
+                    transform: scaleX(-1) scaleY(1);
+                    filter: grayscale(100%);
+                }
+                &>.mySwiper{
+                    display: inline-block;
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 12px;
                 }
             }
         }
