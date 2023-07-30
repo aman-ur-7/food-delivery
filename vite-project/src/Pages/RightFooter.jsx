@@ -1,7 +1,7 @@
 import React from "react";
 
 const RightFooter = () => {
-  return <div>RightFooter</div>;
+  return <div className="orders">RightFooter</div>;
 };
 
 export default RightFooter;

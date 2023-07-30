@@ -24,9 +24,11 @@ const HeroSection = () => {
         },
       };
       await axios
-        .get("http://localhost:7001/user/read", config, {
-          signal: abortController.signal,
-        })
+        .get(
+          "http://localhost:7001/user/read",
+          config
+          // signal: abortController.signal,
+        )
         .then((data) => {
           setRead(data);
         })
@@ -83,7 +85,6 @@ const HeroSection = () => {
           })}
         </Swiper>
       </div>
-
       <div className="content-icons">
         {[
           { icon: <MdLocationOn size={20} />, label: "nearby" },
@@ -98,7 +99,7 @@ const HeroSection = () => {
           <div
             key={index}
             onClick={() => handleClick(index)}
-            className={activeIndex == index ? "underline-icons" : ""}
+            className={activeIndex == index ? "underline-icons " : "checking"}
           >
             {items.icon}
             <h3>{items.label}</h3>
@@ -107,22 +108,35 @@ const HeroSection = () => {
       </div>
 
       <div className="icons-content">
-        {/* {read.data.map(
-          (items, index) =>
-            index > 6 && (
-              <div className="food-cart" key={index}>
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_1280.jpg"
-                  alt=""
-                />
-                <div>
-                  <span>paneer soup</span>
-                  <span>23</span>
-                  <span>park street</span>
+        {read.status == 200 &&
+          read.data.map(
+            (item, index) =>
+              (activeIndex === -1 || activeIndex === 0) &&
+              index < 6 && (
+                <div className="food-cart" key={index}>
+                  <img src={item.pic} alt="" />
+                  <div>
+                    <span>{item.foodName}</span>
+                    <span>{item.cost}Rs</span>
+                    <span>{item.address}</span>
+                  </div>
                 </div>
-              </div>
-            )
-        )} */}
+              )
+          )}
+        {read.status == 200 &&
+          read.data.map(
+            (item, index) =>
+              activeIndex === 4 && (
+                <div className="food-cart" key={index}>
+                  <img src={item.pic} alt="" />
+                  <div>
+                    <span>{item.foodName}</span>
+                    <span>{item.cost}Rs</span>
+                    <span>{item.address}</span>
+                  </div>
+                </div>
+              )
+          )}
       </div>
     </section>
   );

@@ -16,11 +16,11 @@ const theme = {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
-    <ThemeProvider theme={theme}>
-      <ChakraProvider>
-        <GlobalStyle />
-        <App />
-      </ChakraProvider>
-    </ThemeProvider>
+    {/* <ThemeProvider theme={theme}> */}
+    <ChakraProvider>
+      <GlobalStyle />
+      <App />
+    </ChakraProvider>
+    {/* </ThemeProvider> */}
   </Router>
 );

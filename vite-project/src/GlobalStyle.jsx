@@ -191,9 +191,19 @@ export const GlobalStyle = createGlobalStyle`
                         text-transform: capitalize;
                         font-weight: bold;
                     }
+                    &>:nth-child(2){
+                        font-size: large;
+                        text-transform: capitalize;
+                        /* font-weight: bold; */
+                    }
                 }
             }
             }
+        }
+
+
+        &>.orders{
+            background: #F3F3F3;
         }
     }
 
