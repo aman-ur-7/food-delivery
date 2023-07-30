@@ -3,7 +3,9 @@ const App = express();
 const dotEnv = require("dotenv");
 const userRoutes = require("./routes/UserRoutes");
 const Data = require("./config/Data");
+const cors = require("cors");
 
+App.use(cors());
 App.use(express.json());
 dotEnv.config();
 Data();

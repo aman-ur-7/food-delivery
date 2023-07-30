@@ -73,4 +73,13 @@ const foodSeller = asyncHandler(async (req, res) => {
   } else throw new Error();
 });
 
-module.exports = { registerUser, loginUser, updateUser, foodSeller };
+const readData = asyncHandler(async (req, res) => {
+  try {
+    const readDataBackend = await sellerModel.find({});
+    res.status(200).send(readDataBackend);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+module.exports = { registerUser, loginUser, updateUser, foodSeller, readData };

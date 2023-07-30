@@ -132,6 +132,68 @@ export const GlobalStyle = createGlobalStyle`
                     border-radius: 12px;
                 }
             }
+
+            .content-icons{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .underline-icons{
+                    text-decoration: underline;
+                    color: #FF5C28;
+                }
+                &>div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+
+                    &>svg{
+                        color:  #FF5C28;
+                    }
+                    &>h3{
+                        text-transform: capitalize;
+                        font-size: 17px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+
+            .icons-content{
+                display: grid;
+                grid-template-columns: 2fr 2fr 2fr;
+                gap: 30px;
+                overflow-y:scroll; 
+                height: 197px;
+
+              ::-webkit-scrollbar{
+                display: none;
+            } 
+
+            &>.food-cart{
+                display: flex;
+                flex-direction: column;
+
+                &>img{
+                    width: 200px;
+                    border-radius: 12px;
+                    height: 120px;
+                    object-fit: cover;
+                }
+                &>div{
+                    align-items: center;
+                    padding: 7px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    &>:nth-child(1){
+                        font-size: large;
+                        text-transform: capitalize;
+                        font-weight: bold;
+                    }
+                }
+            }
+            }
         }
     }
 
