@@ -8,12 +8,14 @@ import { MdLocationOn } from "react-icons/md";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { FaConciergeBell } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
-import { TbGridDots } from "react-icons/tb";
+import { TbGridDots, TbHomeSearch } from "react-icons/tb";
 import { useEffect } from "react";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [read, setRead] = useState([]);
+  const [Data, setData] = useState([]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -37,12 +39,16 @@ const HeroSection = () => {
         });
     };
     readData();
+
     return () => {
       abortController.abort();
     };
   }, []);
 
-  console.log(read);
+  const fetchData = async (event) => {
+    const id = event.target.closest(".food-cart").id;
+    console.log(id);
+  };
 
   const handleClick = (index) => {
     setActiveIndex(index);
@@ -113,12 +119,15 @@ const HeroSection = () => {
             (item, index) =>
               (activeIndex === -1 || activeIndex === 0) &&
               index < 6 && (
-                <div className="food-cart" key={index}>
+                <div className="food-cart" key={index} id={item._id}>
                   <img src={item.pic} alt="" />
                   <div>
                     <span>{item.foodName}</span>
                     <span>{item.cost}Rs</span>
                     <span>{item.address}</span>
+                    <h2 onClick={fetchData}>
+                      <MdOutlineAddShoppingCart />
+                    </h2>
                   </div>
                 </div>
               )
@@ -127,12 +136,15 @@ const HeroSection = () => {
           read.data.map(
             (item, index) =>
               activeIndex === 4 && (
-                <div className="food-cart" key={index}>
+                <div className="food-cart" key={index} id={item._id}>
                   <img src={item.pic} alt="" />
                   <div>
                     <span>{item.foodName}</span>
                     <span>{item.cost}Rs</span>
                     <span>{item.address}</span>
+                    <h2 onClick={fetchData}>
+                      <MdOutlineAddShoppingCart />
+                    </h2>
                   </div>
                 </div>
               )

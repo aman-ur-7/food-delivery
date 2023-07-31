@@ -196,6 +196,12 @@ export const GlobalStyle = createGlobalStyle`
                         text-transform: capitalize;
                         /* font-weight: bold; */
                     }
+                    &>:nth-child(4){
+                        width: 20%;
+                        cursor: pointer;
+                        font-size: 20px;
+                        color: #FF5C28;
+                    }
                 }
             }
             }
