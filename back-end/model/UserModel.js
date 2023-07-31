@@ -17,6 +17,10 @@ const userModel = new Schema(
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+    },
     // pic: {
     //   type: String,
     //   default:

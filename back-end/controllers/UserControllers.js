@@ -69,7 +69,7 @@ const foodSeller = asyncHandler(async (req, res) => {
 
   if (createUser) {
     // console.log(createUser);
-    res.send("seller successfully created");
+    res.status(200).send(createUser);
   } else throw new Error();
 });
 
@@ -82,4 +82,17 @@ const readData = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser, loginUser, updateUser, foodSeller, readData };
+const readFoodData = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const findDataId = await sellerModel.findById(id);
+  res.status(200).send(findDataId);
+});
+
+module.exports = {
+  registerUser,
+  loginUser,
+  updateUser,
+  foodSeller,
+  readData,
+  readFoodData,
+};

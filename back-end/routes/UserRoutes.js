@@ -6,6 +6,7 @@ const {
   updateUser,
   foodSeller,
   readData,
+  readFoodData,
 } = require("../controllers/UserControllers");
 
 Router.route("/register").post(registerUser);
@@ -13,5 +14,6 @@ Router.route("/seller").post(foodSeller);
 Router.route("/login").get(loginUser);
 Router.route("/update/:id").put(updateUser);
 Router.route("/read").get(readData);
+Router.route("/read/:id").get(readFoodData);
 
 module.exports = Router;

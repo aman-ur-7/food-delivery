@@ -12,10 +12,10 @@ import { TbGridDots, TbHomeSearch } from "react-icons/tb";
 import { useEffect } from "react";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 
-const HeroSection = () => {
+const HeroSection = ({ sendDataToRightFooter }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [read, setRead] = useState([]);
-  const [Data, setData] = useState([]);
+  const [id, setId] = useState([]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -47,7 +47,8 @@ const HeroSection = () => {
 
   const fetchData = async (event) => {
     const id = event.target.closest(".food-cart").id;
-    console.log(id);
+    setId(id);
+    sendDataToRightFooter(id);
   };
 
   const handleClick = (index) => {
