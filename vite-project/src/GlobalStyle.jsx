@@ -210,6 +210,168 @@ export const GlobalStyle = createGlobalStyle`
 
         &>.orders{
             background: #F3F3F3;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            &>h1{
+                font-size: 20px;
+                font-weight: 700;
+                color: #000000;
+            }
+            &>div{
+                &>h3{
+                    color: #363535;
+                }
+                &>h1{
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #000000;
+                }
+            }
+            .orders-icons{
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                
+                &>div{
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    color: #797575;
+                }
+            }
+
+            .orders-cart{
+                /* height: 150px; */
+                /* overflow: scroll; */
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+
+
+             /* ::-webkit-scrollbar{
+                display: none;
+            }  */
+                
+
+                &>div{
+                    background: #ffffff;
+                    padding: 15px;
+                    border-radius: 12px;
+                    height: 120px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+                    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+                    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+
+                    &>img{
+                        border-radius: 8px;
+                        height: 80px;
+                        width: 100px;
+                        object-fit: fill;
+                    }
+                    .card-name{
+                        display: flex;
+                        flex-direction: column;
+
+                        &>div{
+                            align-items: center;
+                            display: flex;
+                            gap: 10px;
+
+                            &>:nth-child(1){
+                                font-size: large;
+                                text-transform: capitalize;
+                                font-weight: 700;
+                            }
+                            &>:nth-child(2){
+                                font-size: large;
+                                text-transform: capitalize;
+                                font-weight: 700;
+                            }
+                        }
+
+                        &>span{
+                            font-size: large;
+                            font-weight: 500;
+                        }
+                        &>select{
+                            font-weight:bold;
+                            width: 40%;
+                            margin-left:20px;
+                            outline: none;
+                            padding: 5px;
+                            border-radius: 5px;
+                            border: 1px solid #797575;
+                            -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+                            -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+                            box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+                        }
+                    }
+                }
+            }
+
+            .delivery{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &>div>img{
+                    height: 100px;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: 50% 30%;
+                    border-radius: 8px;
+                }
+
+                hr{
+                    padding: 1px;
+                    background: #D9D9D9;
+                }
+
+                .delivery-content{
+                    display: flex;
+                    flex-direction: column;
+
+                    &>div{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        &>h3{
+                            color: #797575;
+                        }
+                        &>span{
+                            font-size: large;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                
+                .delivery-cost{
+                    display: flex;
+                    justify-content: space-between;
+
+                    &>h3{
+                        color: #797575;
+                    }
+                    &>span{
+                        font-size: large;
+                        font-weight: bold;
+                    }
+                }
+                .button{
+                    padding: 8px;
+                    background: #FF5C28;
+                    border-radius: 6px;
+                    color: #ffffff;
+                }
+            }
         }
     }
 
