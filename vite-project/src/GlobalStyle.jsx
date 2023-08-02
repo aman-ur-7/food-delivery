@@ -375,4 +375,8 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    .main-page{
+        background: #FF5C28;
+    }
+
 `;

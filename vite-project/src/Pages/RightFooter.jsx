@@ -6,6 +6,7 @@ import { IoLocationSharp } from "react-icons/io5";
 const RightFooter = (props) => {
   const dataFromHeroSection = props.dataFromHeroSection;
   const [foodData, setFoodData] = useState([]);
+  // const [numberItem, setNumberItem] = useState(undefined);
 
   const foodSellerData = async () => {
     const config = {
@@ -67,41 +68,41 @@ const RightFooter = (props) => {
                 </div>
                 <span>Good food here</span>
                 <select>
-                  <option value="someOption">0</option>
-                  <option value="otherOption">1</option>
-                  <option value="otherOption">2</option>
-                  <option value="otherOption">3</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
             </div>
           ))}
       </div>
 
-      <div className="delivery">
-        <div>
-          <img
-            src="https://cdn.pixabay.com/photo/2019/07/25/17/22/diet-4363111_1280.jpg"
-            alt="these delivery "
-          />
-        </div>
-        <hr />
-        <div className="delivery-content">
-          <div>
-            <h3>Sub Total</h3>
-            <span>3Rs</span>
+      {foodData.status == 200 &&
+        [foodData.data].map((item, index) => (
+          <div className="delivery" key={index}>
+            <div>
+              <img src={item.pic} alt="these delivery " />
+            </div>
+            <hr />
+            <div className="delivery-content">
+              <div>
+                <h3>Sub Total</h3>
+                <span>{item.cost}Rs</span>
+              </div>
+              <div>
+                <h3>Delivery Fee</h3>
+                <span>30Rs</span>
+              </div>
+            </div>
+            <hr />
+            <div className="delivery-cost">
+              <h3>Total</h3>
+              <span>{item.cost}</span>
+            </div>
+            <button className="button">take it</button>
           </div>
-          <div>
-            <h3>Delivery Fee</h3>
-            <span>3Rs</span>
-          </div>
-        </div>
-        <hr />
-        <div className="delivery-cost">
-          <h3>Total</h3>
-          <span>34Rs</span>
-        </div>
-        <button className="button">take it</button>
-      </div>
+        ))}
     </div>
   );
 };
