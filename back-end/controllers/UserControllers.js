@@ -46,7 +46,7 @@ const updateUser = asyncHandler(async (req, res) => {
       { email },
       { $set: { password: password } }
     );
-    res.status(200).send("user is updated");
+    res.status(200).send(updateUser);
   } catch (error) {
     console.log(error);
   }

@@ -376,7 +376,80 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .main-page{
-        background: #FF5C28;
+        display: flex;
+
+        .inside-tabs{
+            margin: auto;
+            display: flex;
+            top: 50px;
+            position: relative;
+            text-align: center;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 12px;
+            width: 35%;
+
+            .chakra-tabs__tab{
+                color: #797575;
+                border-bottom: none;
+            }
+            .css-52dxnr[aria-selected=true], .css-52dxnr[data-selected]{
+                border-bottom:none;
+                color: #FF5C28;
+                border-radius: 5px;
+                background: #ede9e9;
+            }
+            .css-1xhq01z{
+                border-bottom: none;
+            }
+
+            .tabs{
+                display: flex;
+                margin: auto;
+                flex-direction: column;
+                width: 90%;
+            }
+            .tablist{
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .form{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &>div>input{
+                    outline: none;
+                    border: none;
+                }
+
+                fieldset {
+                    padding: 0px 2px 4px 2px;
+                    border: 1px solid #7a7a7a;
+                    border-radius: 6px;
+                    align-items: center;
+
+                    &>input{
+                        background: none;
+                        outline: none;
+                        width: 100%;
+                        color: #FF5C28;
+                    }
+                }
+                    
+                &>button{
+                        margin: auto;
+                        background:#FF5C28 ;
+                        width: 50%;
+                        padding: 6px;
+                        border-radius: 4px;
+                        color: white;
+                        font-weight: 400;
+                    }
+            }
+        }
     }
+
 
 `;
