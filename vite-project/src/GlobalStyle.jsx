@@ -377,7 +377,7 @@ export const GlobalStyle = createGlobalStyle`
 
     .main-page{
         display: flex;
-
+        
         .inside-tabs{
             margin: auto;
             display: flex;

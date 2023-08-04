@@ -3,7 +3,7 @@ const sellerModel = require("../model/SellerModel");
 const asyncHandler = require("express-async-handler");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, pic } = req.body;
+  const { name, email, password, address } = req.body;
 
   if (!name || !email || !password) {
     res.status(400);
@@ -20,22 +20,21 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password,
-    pic,
+    address,
   });
 
   if (createUser) {
-    // console.log(createUser);
-    res.send("user successfully created");
+    res.send(createUser);
   } else throw new Error();
 });
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  const loginUser = await UserModel.findOne({ email, password });
+  const userLogin = await UserModel.findOne({ email, password });
 
-  if (loginUser) {
-    res.status(200).send("login successfull");
-  } else res.status(400).send("please check you email again");
+  if (userLogin) {
+    res.status(200).send(userLogin);
+  } else res.status(400).send(error);
 });
 
 const updateUser = asyncHandler(async (req, res) => {

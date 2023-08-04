@@ -11,7 +11,7 @@ const {
 
 Router.route("/register").post(registerUser);
 Router.route("/seller").post(foodSeller);
-Router.route("/login").get(loginUser);
+Router.route("/login").post(loginUser);
 Router.route("/update/:id").put(updateUser);
 Router.route("/read").get(readData);
 Router.route("/read/:id").get(readFoodData);

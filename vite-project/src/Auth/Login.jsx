@@ -1,63 +1,61 @@
-import React, { useReducer } from "react";
-
-const initialState = {
-  email: "",
-  password: "",
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "SET_EMAIL":
-      return { ...state, email: action.payload };
-    case "SET_PASSWORD":
-      return { ...state, password: action.payload };
-    default:
-      return state;
-  }
-};
+import React, { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  const loginPage = async (e) => {
+    e.preventDefault();
 
-  const handleEmailChange = (event) => {
-    dispatch({ type: "SET_EMAIL", payload: event.target.value });
-  };
+    function refreshPage() {
+      window.location.reload(true);
+    }
 
-  const handlePasswordChange = (event) => {
-    dispatch({ type: "SET_PASSWORD", payload: event.target.value });
-  };
+    if (!email || !password) {
+      alert("enter all fields");
+      const timer = setTimeout(() => {
+        refreshPage();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Do something with the email and password values from state
-    console.log("Email:", state.email);
-    console.log("Password:", state.password);
-    refreshPage();
+    try {
+      const foodResponse = await axios.post(
+        `http://localhost:7001/user/login`,
+        { email, password }
+      );
+
+      if (foodResponse) {
+        const timer = setTimeout(() => {
+          refreshPage();
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={loginPage}>
         <fieldset>
           <legend>Email</legend>
           <input
-            type="email"
+            name="email"
+            type="text"
             placeholder="Enter your e-mail"
-            value={state.email}
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </fieldset>
         <fieldset>
           <legend>Password</legend>
           <input
-            type="password"
+            name="password"
+            type="text"
             placeholder="Enter your valid password"
-            value={state.password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
         <button type="submit">Login</button>
