@@ -9,7 +9,10 @@ App.use(cors());
 App.use(express.json());
 dotEnv.config();
 Data();
-
+App.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("Something went wrong");
+});
 const PORT = process.env.PORT;
 
 App.use("/user", userRoutes);

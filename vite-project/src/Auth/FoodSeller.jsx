@@ -1,21 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const FoodSeller = () => {
-  const [name, setName] = useState("");
+  const [foodName, setFoodName] = useState("");
   const [cost, setCost] = useState("");
   const [address, setAddress] = useState("");
-  const [pic, setPic] = useState("");
+  const [foodImage, setFoodImage] = useState(null);
+
+  const seller = () => {};
 
   return (
     <div>
       <div>
-        <form className="form">
+        <form className="form" onSubmit={seller}>
           <fieldset>
             <legend>Food Name</legend>
             <input
               type="name"
               placeholder="Enter your food name"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setFoodName(e.target.value)}
             />
           </fieldset>
           <fieldset>
@@ -36,9 +39,12 @@ const FoodSeller = () => {
           </fieldset>
           <fieldset>
             <legend>Food image</legend>
-            <input type="file" onChange={(e) => setPic(e.target.value)} />
+            <input
+              type="file"
+              onChange={(e) => setFoodImage(e.target.files[0])}
+            />
           </fieldset>
-          <button>Login</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>

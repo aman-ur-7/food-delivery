@@ -67,7 +67,6 @@ const foodSeller = asyncHandler(async (req, res) => {
   });
 
   if (createUser) {
-    // console.log(createUser);
     res.status(200).send(createUser);
   } else throw new Error();
 });
