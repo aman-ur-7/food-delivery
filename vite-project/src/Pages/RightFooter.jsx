@@ -27,7 +27,6 @@ const RightFooter = (props) => {
   };
   useEffect(() => {
     foodSellerData();
-    console.log(foodData);
   }, [dataFromHeroSection]);
 
   const handleImgLoadingError = (e) => {

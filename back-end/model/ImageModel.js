@@ -1,11 +1,11 @@
-// ImageModel.js
-const mongoose = require("mongoose");
+// // ImageModel.js
+// const mongoose = require("mongoose");
 
-const imageSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  path: { type: String, required: true },
-});
+// const imageSchema = new mongoose.Schema({
+//   name: { type: String, required: true },
+//   path: { type: String, required: true },
+// });
 
-const ImageModel = mongoose.model("Image", imageSchema);
+// const ImageModel = mongoose.model("Image", imageSchema);
 
-module.exports = ImageModel;
+// module.exports = ImageModel;

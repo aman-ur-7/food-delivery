@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import FoodSeller from "../Auth/FoodSeller";
 
-const MainPage = () => {
+const MainPage = ({ sendDataToApp }) => {
   return (
     <div className="main-page">
       <div className="inside-tabs">
@@ -20,7 +20,7 @@ const MainPage = () => {
               <Register />
             </TabPanel>
             <TabPanel>
-              <Login />
+              <Login sendDataToMain={sendDataToApp} />
             </TabPanel>
             <TabPanel>
               <FoodSeller />

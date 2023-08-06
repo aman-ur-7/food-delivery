@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useData } from "../../src/DataContext";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { setDataFromLogin } = useData();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,10 +31,8 @@ const Login = () => {
       );
 
       if (foodResponse) {
-        const timer = setTimeout(() => {
-          refreshPage();
-        }, 2000);
-        return () => clearTimeout(timer);
+        setDataFromLogin(foodResponse);
+        navigate("/*", { replace: true });
       }
     } catch (error) {
       console.log(error);

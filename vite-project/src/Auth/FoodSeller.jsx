@@ -5,9 +5,40 @@ const FoodSeller = () => {
   const [foodName, setFoodName] = useState("");
   const [cost, setCost] = useState("");
   const [address, setAddress] = useState("");
-  const [foodImage, setFoodImage] = useState(null);
+  const [pic, setPic] = useState(null);
 
-  const seller = () => {};
+  const seller = async (e) => {
+    e.preventDefault();
+
+    function refreshPage() {
+      window.location.reload(true);
+    }
+
+    if (!foodName || !cost || !address || !pic) {
+      alert("enter all fields");
+      const timer = setTimeout(() => {
+        refreshPage();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+
+    try {
+      const sellerResponse = await axios.post(
+        `http://localhost:7001/user/seller`,
+        { foodName, cost, address, pic }
+      );
+
+      console.log(sellerResponse);
+      if (sellerResponse) {
+        const timer = setTimeout(() => {
+          refreshPage();
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -40,8 +71,9 @@ const FoodSeller = () => {
           <fieldset>
             <legend>Food image</legend>
             <input
-              type="file"
-              onChange={(e) => setFoodImage(e.target.files[0])}
+              type="text"
+              onChange={(e) => setPic(e.target.value)}
+              placeholder="Paste the url"
             />
           </fieldset>
           <button type="submit">Login</button>
