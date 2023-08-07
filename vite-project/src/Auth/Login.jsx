@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../src/DataContext";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -42,25 +43,26 @@ const Login = () => {
   return (
     <div>
       <form className="form" onSubmit={loginPage}>
-        <fieldset>
-          <legend>Email</legend>
-          <input
-            name="email"
-            type="text"
-            placeholder="Enter your e-mail"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </fieldset>
-        <fieldset>
-          <legend>Password</legend>
-          <input
-            name="password"
-            type="text"
-            placeholder="Enter your valid password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </fieldset>
-        <button type="submit">Login</button>
+        <input
+          name="email"
+          type="text"
+          placeholder="Enter your e-mail"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          name="password"
+          type="text"
+          placeholder="Enter your valid password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="resets">
+          <button className="button" type="submit">
+            Login
+          </button>
+          <NavLink className="nav-link" to="/reset">
+            <span>Reset password?</span>
+          </NavLink>
+        </div>
       </form>
     </div>
   );

@@ -10,8 +10,8 @@ const MainPage = ({ sendDataToApp }) => {
       <div className="inside-tabs">
         <Tabs className="tabs">
           <TabList className="tablist">
-            <Tab>Register</Tab>
-            <Tab>Login</Tab>
+            <Tab>Register/</Tab>
+            <Tab>Login/</Tab>
             <Tab>Food seller</Tab>
           </TabList>
 

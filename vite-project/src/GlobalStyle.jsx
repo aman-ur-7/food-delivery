@@ -376,80 +376,140 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .main-page{
+        content: ''; 
+        position :absolute;
+        width: 32%;
+        height: 95vh;
+        border: 1px solid #FFF;
+        border-radius: 25px;
+        box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.30);
+        top: 10px;
+        left: 490px;
+        flex-shrink: 0;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
         
-        .inside-tabs{
-            margin: auto;
+        .tablist{
+
+        .chakra-tabs__tab{
+             border-bottom: none;
+        }
+        }
+
+        .tabs{
+            height: 350px;
+            width: 100%;
             display: flex;
-            top: 50px;
-            position: relative;
-            text-align: center;
-            background: #f0f0f0;
-            padding: 20px;
-            border-radius: 12px;
-            width: 35%;
+            flex-direction: column;
+            gap: 10px;
 
-            .chakra-tabs__tab{
-                color: #797575;
-                border-bottom: none;
-            }
-            .css-52dxnr[aria-selected=true], .css-52dxnr[data-selected]{
+
+            .chakra-tabs__tablist{
                 border-bottom:none;
-                color: #FF5C28;
-                border-radius: 5px;
-                background: #ede9e9;
+                color: #535353;
+                
+            .css-52dxnr[aria-selected=true], .css-52dxnr[data-selected] ,.main-page .tabs .chakra-tabs__tablist .css-52dxnr[data-selected]{
+                --tabs-color: #282727;
+                font-size: 28px;
+                font-weight: bold;
+                border-color: currentColor;
             }
-            .css-1xhq01z{
-                border-bottom: none;
-            }
+            } 
+            } 
 
-            .tabs{
-                display: flex;
-                margin: auto;
-                flex-direction: column;
-                width: 90%;
-            }
-            .tablist{
-                display: flex;
-                justify-content: space-around;
-            }
 
-            .form{
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
+            .tab-panels{
 
-                &>div>input{
-                    outline: none;
-                    border: none;
-                }
+                .form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
 
-                fieldset {
-                    padding: 0px 2px 4px 2px;
-                    border: 1px solid #7a7a7a;
-                    border-radius: 6px;
-                    align-items: center;
-
-                    &>input{
-                        background: none;
-                        outline: none;
-                        width: 100%;
-                        color: #FF5C28;
-                    }
-                }
-                    
-                &>button{
-                        margin: auto;
-                        background:#FF5C28 ;
-                        width: 50%;
-                        padding: 6px;
-                        border-radius: 4px;
-                        color: white;
+                    &>::placeholder{
+                        color: #717171;
                         font-weight: 400;
                     }
+                &>input{
+                    color: black;
+                    width: 278px;
+                    outline: none;
+                    border: none;
+                    border-bottom: 2px solid #DDD;
+                }
+                
+                .button{
+                    width: 142px;
+                    height: 44px;
+                    flex-shrink: 0;
+                    border-radius: 15px;
+                    background: #7795FF ;
+                    box-shadow: 0px 1.8518518209457397px 3.1481480598449707px 0px rgba(76, 95, 137, 0.02), 0px 8.148148536682129px 6.518518447875977px 0px rgba(76, 95, 137, 0.03), 0px 20px 13px 0px rgba(76, 95, 137, 0.04), 0px 38.51852035522461px 25.481481552124023px 0px rgba(76, 95, 137, 0.04), 0px 64.81481170654297px 46.85185241699219px 0px rgba(76, 95, 137, 0.05), 0px 100px 80px 0px rgba(76, 95, 137, 0.07);
+                     }
+
+                     .resets{
+                        display: flex;
+                        align-items: center;
+                        gap: 30px;
+
+                        &>.nav-link>span{
+                            color: tomato;
+                        }
+                     }
+                }
             }
         }
+        
+    .reset-password{     
+        content: ''; 
+        position :absolute;
+        width: 28%;
+        height: 95vh;
+        border: 1px solid #FFF;
+        border-radius: 25px;
+        box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.30);
+        top: 10px;
+        left: 490px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        .reset-content{
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            gap: 20px;
+
+            &>h1{
+                font-size: 25px;
+                font-weight: bold;
+                color: #363535;
+            }
+            &>div{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                &>input{
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid black;
+                }
+            }
+                    
+
+            .reset-button{
+                   width: 142px;
+                   height: 44px;
+                   flex-shrink: 0;
+                    border-radius: 15px;
+                    background: #7795FF ;
+                    box-shadow: 0px 1.8518518209457397px 3.1481480598449707px 0px rgba(76, 95, 137, 0.02), 0px 8.148148536682129px 6.518518447875977px 0px rgba(76, 95, 137, 0.03), 0px 20px 13px 0px rgba(76, 95, 137, 0.04), 0px 38.51852035522461px 25.481481552124023px 0px rgba(76, 95, 137, 0.04), 0px 64.81481170654297px 46.85185241699219px 0px rgba(76, 95, 137, 0.05), 0px 100px 80px 0px rgba(76, 95, 137, 0.07);
+                }
+        }
     }
-
-
 `;
