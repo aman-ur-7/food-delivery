@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AiFillClockCircle } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
+import { useData } from "../DataContext";
 
 const RightFooter = (props) => {
+  const { dataFromLogin } = useData("");
   const dataFromHeroSection = props.dataFromHeroSection;
   const [foodData, setFoodData] = useState([]);
   // const [numberItem, setNumberItem] = useState(undefined);
@@ -25,6 +27,7 @@ const RightFooter = (props) => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     foodSellerData();
   }, [dataFromHeroSection]);
@@ -32,6 +35,24 @@ const RightFooter = (props) => {
   const handleImgLoadingError = (e) => {
     e.target.src =
       "https://cdn.pixabay.com/photo/2019/07/25/17/22/diet-4363111_1280.jpg";
+  };
+
+  const sendEmail = async () => {
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    try {
+      const emailResponse = await axios.post(
+        `http://localhost:7001/user/email`,
+        { dataFromLogin },
+        config
+      );
+      console.log(emailResponse);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -99,7 +120,9 @@ const RightFooter = (props) => {
               <h3>Total</h3>
               <span>{item.cost}</span>
             </div>
-            <button className="button">take it</button>
+            <button className="button" onClick={sendEmail}>
+              take it
+            </button>
           </div>
         ))}
     </div>

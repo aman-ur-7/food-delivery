@@ -2,6 +2,8 @@ const UserModel = require("../model/UserModel");
 const sellerModel = require("../model/SellerModel");
 const asyncHandler = require("express-async-handler");
 
+const nodemailer = require("nodemailer");
+
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, address } = req.body;
 
@@ -86,6 +88,38 @@ const readFoodData = asyncHandler(async (req, res) => {
   res.status(200).send(findDataId);
 });
 
+const emailSender = asyncHandler(async (req, res) => {
+  const email = req.body;
+  const emailResponse = email.dataFromLogin;
+  const Email = emailResponse.data.email;
+
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "canvadesigner77@gmail.com",
+      pass: process.env.APP_PASSWORD,
+    },
+  });
+
+  var mailOptions = {
+    from: "canvadesigner77@gmail.com",
+    to: Email,
+    subject: "Your delivery is orderd sir",
+    text: "goes",
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+
+  if (emailSender) {
+    res.status(200).send("email has sent");
+  }
+});
 module.exports = {
   registerUser,
   loginUser,
@@ -93,4 +127,5 @@ module.exports = {
   foodSeller,
   readData,
   readFoodData,
+  emailSender,
 };

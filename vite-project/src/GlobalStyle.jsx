@@ -422,11 +422,12 @@ export const GlobalStyle = createGlobalStyle`
 
 
             .tab-panels{
+                padding: 20px;
 
                 .form{
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
+                    gap: 25px;
 
                     &>::placeholder{
                         color: #717171;
