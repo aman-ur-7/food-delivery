@@ -65,7 +65,7 @@ const FoodSeller = () => {
             placeholder="Paste the url"
           />
           <button className="button" type="submit">
-            Login
+            Upload
           </button>
         </form>
       </div>
