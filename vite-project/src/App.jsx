@@ -29,7 +29,6 @@ const App = () => {
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/reset" element={<ResetPassword />} />
       </Routes>
-      {/*  */}
     </>
   );
 };
