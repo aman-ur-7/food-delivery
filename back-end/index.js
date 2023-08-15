@@ -5,7 +5,13 @@ const userRoutes = require("./routes/UserRoutes");
 const Data = require("./config/Data");
 const cors = require("cors");
 
-App.use(cors());
+App.use(
+  cors({
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "PUT", "GET"],
+    credentials: true,
+  })
+);
 App.use(express.json());
 dotEnv.config();
 Data();
